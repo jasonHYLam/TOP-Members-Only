@@ -1,3 +1,20 @@
 extends layout 
 
 block content 
+    h1=title
+
+    form(action="" method='POST') 
+    div.form-group
+        label(for="first-name") First Name
+        input.form-control(type="text" name="first-name" placeholder='Jack' required=true)
+
+        label(for="last-name") Last Name
+        input.form-control(type="text" name="last-name" placeholder='Jackson' required=true)
+
+        label(for="username") Username
+        input.form-control(type="text" name="username" placeholder='Jack123' required=true)
+
+        label(for="password") Password
+        input.form-control(type="password" name="password" required=true)
+
+        button(type='submit') Submit
