@@ -2,6 +2,9 @@ require('dotenv').config()
 
 const createError = require('http-errors');
 const express = require('express');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -22,9 +25,17 @@ async function main() {
   await mongoose.connect(mongoDB);
 }
 
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'mongo connection error'));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
 
 app.use(logger('dev'));
 app.use(express.json());
