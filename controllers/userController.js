@@ -92,6 +92,10 @@ exports.user_signup_post = [
 
         }
     })
-
-    
 ]
+
+exports.join_club_get = asyncHandler( async(req, res, next) => {
+    res.render('membership', {
+        title: 'Join Membership'
+    })
+})
