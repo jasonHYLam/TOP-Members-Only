@@ -1,4 +1,5 @@
 const asyncHandler = require("express-async-handler");
+const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
 const { body, validationResult } = require('express-validator');
@@ -73,9 +74,22 @@ exports.user_signup_post = [
         }
 
         else {
-            await user.save();
-            // Where do i redirect to?
-            res.redirect()
+            // use bycrypt here
+            bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
+                if (err) return next(err);
+                const userEncrypted = new User({
+                    first_name: req.body.firstName,
+                    last_name: req.body.lastName,
+                    username: req.body.username,
+                    password: hashedPassword,
+                })
+
+                await userEncrypted.save();
+
+                // Where do i redirect to?
+                res.redirect('/membership')
+            })
+
         }
     })
 
