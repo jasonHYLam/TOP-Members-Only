@@ -115,10 +115,14 @@ exports.join_club_post = asyncHandler( async(req, res, next) => {
         latestUser.membership_status = true;
         await latestUser.save();
 
-        res.render('/home')
+        res.redirect('/home')
     }
 
 
     
     res.render('membership')
+})
+
+exports.home_get = asyncHandler(async (req, res, next) => {
+    res.render('home')
 })
