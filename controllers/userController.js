@@ -1,6 +1,9 @@
+require('dotenv').config();
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
+
+const passport = require('passport');
 
 const { body, validationResult } = require('express-validator');
 
@@ -20,6 +23,7 @@ exports.user_signup_post = [
     .withMessage("First name must be specified.")
     .isAlphanumeric()
     .withMessage("First name has non-alphanumeric characters."),
+    // is it possible to determine if username has already been taken? surely that's an async function... how do i...
 
     body('lastName')
     .trim()
@@ -102,4 +106,19 @@ exports.join_club_get = asyncHandler( async(req, res, next) => {
     res.render('membership', {
         title: 'Join Membership'
     })
+})
+
+exports.join_club_post = asyncHandler( async(req, res, next) => {
+
+    if (req.body.membershipPassword === process.env.MEMBERSHIP_PASSWORD) {
+        const latestUser = await User.find().sort({ _id: -1 }).limit(1);
+        latestUser.membership_status = true;
+        await latestUser.save();
+
+        res.render('/home')
+    }
+
+
+    
+    res.render('membership')
 })
