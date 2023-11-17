@@ -55,7 +55,8 @@ exports.user_signup_post = [
     // i think in both cases, i need to implement a custom validator, to return boolean whether valid or not.
 
     asyncHandler(async (req, res, next) => {
-        const errors = validationResult(req)
+
+        const errors = validationResult(req);
 
         const user = new User({
             first_name: req.body.firstName,
@@ -76,12 +77,15 @@ exports.user_signup_post = [
         else {
             // use bycrypt here
             bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
+
                 if (err) return next(err);
+
                 const userEncrypted = new User({
                     first_name: req.body.firstName,
                     last_name: req.body.lastName,
                     username: req.body.username,
                     password: hashedPassword,
+                    membership_status: false,
                 })
 
                 await userEncrypted.save();
