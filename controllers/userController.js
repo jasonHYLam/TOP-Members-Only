@@ -161,7 +161,9 @@ exports.user_login_post = [
         }
 
         else {
-            passport.authenticate('local')
+            passport.authenticate('local', {
+                successRedirect: '/home',
+            })
         }
     })
 ]
