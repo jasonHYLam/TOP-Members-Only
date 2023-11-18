@@ -111,18 +111,16 @@ exports.join_club_get = asyncHandler( async(req, res, next) => {
 exports.join_club_post = asyncHandler( async(req, res, next) => {
 
     if (req.body.membershipPassword === process.env.MEMBERSHIP_PASSWORD) {
-        const latestUser = await User.find().sort({ _id: -1 }).limit(1);
+        const latestUsers = await User.find().sort({ _id: -1 }).limit(1);
+        const latestUser = latestUsers[0];
         latestUser.membership_status = true;
         await latestUser.save();
-
-        res.redirect('/home')
     }
 
+    res.redirect('/home')
 
-    
-    res.render('membership')
 })
 
 exports.home_get = asyncHandler(async (req, res, next) => {
-    res.render('home')
+    res.render('home', {})
 })
