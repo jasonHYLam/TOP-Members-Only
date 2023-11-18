@@ -124,3 +124,7 @@ exports.join_club_post = asyncHandler( async(req, res, next) => {
 exports.home_get = asyncHandler(async (req, res, next) => {
     res.render('home', {})
 })
+
+exports.user_login_get = asyncHandler(async (req, res, next) => {
+    res.render('login', {})
+})
