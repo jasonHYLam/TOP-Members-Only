@@ -80,6 +80,7 @@ exports.user_signup_post = [
 
         else {
             // use bycrypt here
+            // i may have to add a try catch for errors...
             bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
 
                 if (err) return next(err);
@@ -126,5 +127,41 @@ exports.home_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.user_login_get = asyncHandler(async (req, res, next) => {
-    res.render('login', {})
+    res.render('login', {
+        title: 'Login',
+    })
 })
+
+exports.user_login_post = [
+    body('username')
+    .trim()
+    .isLength({ min: 1})
+    .escape(),
+
+    body('username')
+    .trim()
+    .isLength({ min: 1})
+    .escape(),
+
+
+    asyncHandler(async (req, res, next) => {
+
+        const errors = validationResult(req);
+        const user = new User({
+            username: req.body.username,
+            password: req.body.password,
+        })
+        
+        if (!errors.isEmpty()) {
+            res.render('login', {
+                title: 'Login',
+                user: user,
+                errors: errors.array(),
+            })
+        }
+
+        else {
+            passport.authenticate('local')
+        }
+    })
+]
