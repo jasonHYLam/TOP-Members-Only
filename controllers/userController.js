@@ -163,7 +163,15 @@ exports.user_login_post = [
         else {
             passport.authenticate('local', {
                 successRedirect: '/home',
-            })
+                failureRedirect: '/login',
+            },
+
+            // is this callback function necessary? apparently it is... check dcord
+            (err, user) => {
+                if (err) next(err);
+                req.login(user, next);
+            }
+            )(req, res, next);
         }
     })
 ]
