@@ -1,0 +1,34 @@
+extends layout 
+
+block content 
+
+    h1=title 
+
+    form(action="" method='POST') 
+        div.form-group
+            label(for="username") Username:
+            input.form-control(
+                name="username", 
+                type="text", 
+                required=true,
+                value=user===undefined ? '' : user.username
+                )
+
+        div.form-group
+            label(for="password") Password:
+            input.form-control(
+                name="password", 
+                type="text", 
+                required=true,
+                value=user===undefined ? '' : user.password
+                )
+
+        button(type='submit') Log in
+
+    hr
+
+    if errors 
+        ul 
+            each error in errors 
+                li error.msg
+            
