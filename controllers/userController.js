@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
 const passport = require('passport');
+require('../config/passport')(passport); // not sure if this is the way to go 
 
 const { body, validationResult } = require('express-validator');
 
