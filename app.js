@@ -1,8 +1,5 @@
 require('dotenv').config()
 
-// const User = require('./models/user');
-// const bcrypt = require('bcryptjs');
-
 const createError = require('http-errors');
 const express = require('express');
 const session = require('express-session');

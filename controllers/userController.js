@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
 const passport = require('passport');
-require('../config/passport')(passport); // not sure if this is the way to go 
+// require('../config/passport')(passport); // not sure if this is the way to go 
 
 const { body, validationResult } = require('express-validator');
 
@@ -165,14 +165,16 @@ exports.user_login_post = [
             passport.authenticate('local', {
                 successRedirect: '/home',
                 failureRedirect: '/login',
-            },
+            }
+            // ,
 
             // is this callback function necessary? apparently it is... check dcord
-            (err, user) => {
-                if (err) next(err);
-                req.login(user, next);
-            }
-            )(req, res, next);
+            // (err, user) => {
+            //     if (err) next(err);
+            //     req.login(user, next);
+            // }
+            // )(req, res, next);
+            )
         }
     })
 ]
