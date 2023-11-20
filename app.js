@@ -7,7 +7,6 @@ const passport = require('passport');
 
 require('./config/passport')(passport);
 
-// const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -28,41 +27,6 @@ main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
 }
-
-
-// passport.use(
-//   new LocalStrategy(async (username, password, done) => {
-//     try {
-//       const user = await User.findOne({ username: username});
-//       const match = await bcrypt.compare(password, user.password);
-//       if (!user) {
-//         return done( null, false, { message: 'Incorrect username' });
-//       };
-
-//       if (!match) {
-//         return done( null, false, { message: 'Incorrect password' });
-//       }
-
-//       return done(null, user);
-
-//     } catch(err) {
-//       return done(err);
-//     };
-//   })
-// );
-
-// passport.serializeUser((user, done) => {
-//   done(null, user.id);
-// });
-
-// passport.deserializeUser(async (id, done) => {
-//   try {
-//     const user = await User.findById(id);
-//     done(null, user);
-//   } catch(err) {
-//     done(err);
-//   };
-// });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongo connection error'));

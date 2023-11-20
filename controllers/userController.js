@@ -4,7 +4,6 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
 const passport = require('passport');
-// require('../config/passport')(passport); // not sure if this is the way to go 
 
 const { body, validationResult } = require('express-validator');
 
@@ -80,7 +79,6 @@ exports.user_signup_post = [
         }
 
         else {
-            // use bycrypt here
             // i may have to add a try catch for errors...
             bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
 
@@ -139,7 +137,7 @@ exports.user_login_post = [
     .isLength({ min: 1})
     .escape(),
 
-    body('username')
+    body('password')
     .trim()
     .isLength({ min: 1})
     .escape(),
@@ -162,19 +160,10 @@ exports.user_login_post = [
         }
 
         else {
-            passport.authenticate('local', {
+            return passport.authenticate('local', {
                 successRedirect: '/home',
                 failureRedirect: '/login',
-            }
-            // ,
-
-            // is this callback function necessary? apparently it is... check dcord
-            // (err, user) => {
-            //     if (err) next(err);
-            //     req.login(user, next);
-            // }
-            // )(req, res, next);
-            )
+            })
         }
     })
 ]
