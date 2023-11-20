@@ -6,7 +6,8 @@ block content
 
     a(href='/login') Login
 
-    a(href='/message') New Message
+    if user 
+        a(href='/message') New Message
 
     if user 
         p #{user.username} is here
