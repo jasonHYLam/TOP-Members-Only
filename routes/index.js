@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const userController = require('../controllers/userController');
+const messageController = require('../controllers/messageController');
 
 /* GET home page. */
 router.get('/',(req, res, next) => {
@@ -19,5 +20,8 @@ router.get('/home', userController.home_get);
 
 router.get('/login', userController.user_login_get);
 router.post('/login', userController.user_login_post);
+
+router.get('/message', messageController.message_form_get);
+router.post('/message', messageController.message_form_post);
 
 module.exports = router;

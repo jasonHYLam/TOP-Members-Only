@@ -163,7 +163,7 @@ exports.user_login_post = [
             return passport.authenticate('local', {
                 successRedirect: '/home',
                 failureRedirect: '/login',
-            })
+            })(req, res, next)
         }
     })
 ]
