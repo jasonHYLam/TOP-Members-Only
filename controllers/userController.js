@@ -122,7 +122,11 @@ exports.join_club_post = asyncHandler( async(req, res, next) => {
 })
 
 exports.home_get = asyncHandler(async (req, res, next) => {
-    res.render('home', {})
+    console.log('Current user:')
+    console.log(req.user)
+    res.render('home', {
+        user: req.user
+    })
 })
 
 exports.user_login_get = asyncHandler(async (req, res, next) => {

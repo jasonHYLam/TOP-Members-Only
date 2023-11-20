@@ -21,6 +21,7 @@ router.get('/home', userController.home_get);
 router.get('/login', userController.user_login_get);
 router.post('/login', userController.user_login_post);
 
+// need to protect this if haven't logged in
 router.get('/message', messageController.message_form_get);
 router.post('/message', messageController.message_form_post);
 
