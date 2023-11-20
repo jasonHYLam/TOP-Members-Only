@@ -8,4 +8,5 @@ block content
 
     a(href='/message') New Message
 
-    p #{user.username} is here
+    if user 
+        p #{user.username} is here
