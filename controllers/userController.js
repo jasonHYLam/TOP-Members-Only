@@ -35,9 +35,9 @@ exports.user_signup_post = [
 
     body('username')
     .trim()
-    .isLength({min: 1})
+    .isLength({min: 4})
     .escape()
-    .withMessage("Username must be specified."),
+    .withMessage("Username must have a minimum of 4 characters."),
 
     body('password')
     .trim()
@@ -60,8 +60,8 @@ exports.user_signup_post = [
 
     asyncHandler(async (req, res, next) => {
 
-        const existingUser = await User.findOne({ username: req.body.username })
-        if (existingUser) throw new Error('Username already taken');
+        // const existingUser = await User.findOne({ username: req.body.username })
+        // if (existingUser) throw new Error('Username already taken');
 
         const errors = validationResult(req);
         console.log(errors)
@@ -76,11 +76,11 @@ exports.user_signup_post = [
         if (!errors.isEmpty()) {
             res.render('signup', {
                 title: "Sign up",
-                //populate with previously chosen 
                 user: user,
                 errors: errors.array(),
             })
         }
+
 
         else {
             // i may have to add a try catch for errors...
