@@ -7,16 +7,13 @@ module.exports = function(passport) {
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
-    console.log('Start of LocalStrategy');
-      console.log('Finding User')
+      console.log('calling LocalStrategy')
       const user = await User.findOne({ username: username});
-      console.log(user)
       if (!user) {
         return done( null, false, { message: 'Incorrect username' });
       };
 
       const match = await bcrypt.compare(password, user.password);
-      console.log(match)
       if (!match) {
         return done( null, false, { message: 'Incorrect password' });
       }
@@ -30,11 +27,13 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
+  console.log('calling serializeUser')
   done(null, user.id);
 });
 
 passport.deserializeUser(async (id, done) => {
   try {
+    console.log('calling deserializeUser')
     const user = await User.findById(id);
     done(null, user);
   } catch(err) {

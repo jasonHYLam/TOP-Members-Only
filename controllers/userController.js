@@ -63,7 +63,6 @@ exports.user_signup_post = [
 
         const errors = validationResult(req);
         const existingUser = await User.findOne({ username: req.body.username })
-        console.log(errors)
 
         const user = new User({
             first_name: req.body.firstName,
@@ -80,6 +79,7 @@ exports.user_signup_post = [
             })
         }
 
+        // Requires separate error handling, as checking database cannot be done with Express Validator.
         else if (existingUser) {
             res.render('signup', {
                 title: 'Sign up',
@@ -87,8 +87,6 @@ exports.user_signup_post = [
                 errors: [{msg: 'Username already taken'}]
             })
         }
-         
-
 
         else {
             // i may have to add a try catch for errors...
@@ -134,6 +132,8 @@ exports.join_club_post = asyncHandler( async(req, res, next) => {
 })
 
 exports.home_get = asyncHandler(async (req, res, next) => {
+
+    console.log(req.user)
     res.render('home', {
         user: req.user
     })
