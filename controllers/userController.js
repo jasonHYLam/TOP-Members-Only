@@ -191,6 +191,6 @@ exports.admin_form_get = asyncHandler(async (req, res, next) => {
     })
 })
 
-export.admin_form_post = [
+exports.admin_form_post = [
 
 ]

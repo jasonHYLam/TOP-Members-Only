@@ -24,4 +24,6 @@ router.post('/login', userController.user_login_post);
 router.get('/message', messageController.message_form_get);
 router.post('/message', messageController.message_form_post);
 
+router.get('/admin', userController.admin_form_get);
+
 module.exports = router;
