@@ -9,14 +9,15 @@ block content
     if user 
         a(href='/message') New Message
 
-    if user 
         p #{user.username} is here
+
+        a(href='/admin') Become Admin
     
     each message in messages 
 
         div.message-div
             if user 
-                p #{message.author.username}
+                p() #{message.author.username}
                 p #{message.timeStamp}
         
             p #{message.title}
