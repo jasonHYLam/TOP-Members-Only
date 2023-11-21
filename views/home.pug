@@ -14,9 +14,9 @@ block content
     
     each message in messages 
 
-        div
+        div.message-div
             if user 
-                p #{message.author}
+                p #{message.author.username}
                 p #{message.timeStamp}
         
             p #{message.title}
