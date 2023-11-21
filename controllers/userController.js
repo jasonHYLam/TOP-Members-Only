@@ -134,10 +134,11 @@ exports.join_club_post = asyncHandler( async(req, res, next) => {
 
 exports.home_get = asyncHandler(async (req, res, next) => {
 
-    const allMessages = await 
+    const allMessages = await Message.find().exec();
     console.log(req.user)
     res.render('home', {
         user: req.user
+        messages: allMessages,
     })
 })
 
