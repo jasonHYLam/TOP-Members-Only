@@ -23,11 +23,14 @@ exports.message_form_post = [
 
     asyncHandler(async (req, res, next) => {
 
+        // find User in MongoDB that matches req.user.username.
+
         const errors = validationResult(req);
         const message = new Message({
             title: req.body.title,
             message: req.body.message,
             timeStamp: new Date(),
+
         }) 
 
         if (!errors.isEmpty()) {

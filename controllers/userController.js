@@ -60,7 +60,11 @@ exports.user_signup_post = [
 
     asyncHandler(async (req, res, next) => {
 
+        const existingUser = await User.findOne({ username: req.body.username })
+        if (existingUser) throw new Error('Username already taken');
+
         const errors = validationResult(req);
+        console.log(errors)
 
         const user = new User({
             first_name: req.body.firstName,
