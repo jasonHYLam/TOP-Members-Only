@@ -11,3 +11,13 @@ block content
 
     if user 
         p #{user.username} is here
+    
+    each message in messages 
+
+        div
+            if user 
+                p #{message.author}
+                p #{message.timeStamp}
+        
+            p #{message.title}
+            p #{message.text}

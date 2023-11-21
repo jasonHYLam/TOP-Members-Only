@@ -137,7 +137,7 @@ exports.home_get = asyncHandler(async (req, res, next) => {
     const allMessages = await Message.find().exec();
     console.log(req.user)
     res.render('home', {
-        user: req.user
+        user: req.user,
         messages: allMessages,
     })
 })
