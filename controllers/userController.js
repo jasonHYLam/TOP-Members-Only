@@ -2,6 +2,7 @@ require('dotenv').config();
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
+const Message = require("../models/message");
 
 const passport = require('passport');
 
@@ -133,6 +134,7 @@ exports.join_club_post = asyncHandler( async(req, res, next) => {
 
 exports.home_get = asyncHandler(async (req, res, next) => {
 
+    const allMessages = await 
     console.log(req.user)
     res.render('home', {
         user: req.user
