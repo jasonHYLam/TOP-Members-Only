@@ -184,3 +184,13 @@ exports.user_login_post = [
         }
     })
 ]
+
+exports.admin_form_get = asyncHandler(async (req, res, next) => {
+    res.render('admin', {
+        title: 'Become Admin'
+    })
+})
+
+export.admin_form_post = [
+
+]
