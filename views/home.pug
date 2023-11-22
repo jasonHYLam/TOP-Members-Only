@@ -4,14 +4,20 @@ block content
 
     h1 Home!
 
-    a(href='/login') Login
+    p
+        a(href='/login') Login
 
     if user 
-        a(href='/message') New Message
+        p
+            a(href='/message') New Message
 
         p #{user.username} is here
 
-        a(href='/admin') Become Admin
+        p 
+            a(href='/admin') Become Admin
+
+        if user.admin_status 
+            p You are admin. You can delete messages.
     
     each message in messages 
 

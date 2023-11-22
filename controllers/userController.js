@@ -200,6 +200,8 @@ exports.admin_form_post = asyncHandler(async (req, res, next) => {
         console.log(matchingUser)
         matchingUser.admin_status = true;
         await matchingUser.save();
+
+        res.redirect('/home')
     }
     else {
         res.render('admin', {

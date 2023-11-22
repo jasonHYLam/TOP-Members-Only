@@ -6,7 +6,7 @@ block content
 
     p Admins can delete posts 
 
-    if !user
+    if user
         p Enter password:
 
         form(action="" method='POST')
@@ -17,6 +17,10 @@ block content
                 )
             button(type='submit') Submit
         
-        ul
-        each error in errors 
-            li error.msg
+        if errors
+            ul
+            each error in errors 
+                li #{error.msg}
+    
+    else 
+        p You are not logged in
