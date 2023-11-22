@@ -6,12 +6,17 @@ block content
 
     p Admins can delete posts 
 
-    p Enter password:
+    if !user
+        p Enter password:
 
-    form(action="" method='POST')
-        div.form-group
-            input.form-control(
-                type='text',
-                name='adminPassword',
-            )
-        button(type='submit') Submit
+        form(action="" method='POST')
+            div.form-group
+                input.form-control(
+                    type='text',
+                    name='adminPassword',
+                )
+            button(type='submit') Submit
+        
+        ul
+        each error in errors 
+            li error.msg
