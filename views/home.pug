@@ -4,8 +4,6 @@ block content
 
     h1 Home!
 
-    p
-        a(href='/login') Login
 
     if user 
         p
@@ -13,11 +11,17 @@ block content
 
         p #{user.username} is here
 
-        p 
-            a(href='/admin') Become Admin
+        if !user.admin_status
+            p 
+                a(href='/admin') Become Admin
 
         if user.admin_status 
             p You are admin. You can delete messages.
+    
+    else 
+        p
+            a(href='/login') Login
+
     
     div.message-container
         each message in messages 
@@ -31,14 +35,15 @@ block content
                 p !{message.text}
 
                 if user.admin_status 
-                    button.toggleShowDelete Delete 
+                    button.toggle-show-delete Delete 
 
                     div.hidden-message-delete-form
                         p Are you sure you want to delete? This cannot be undone.
-                        form(action="" method='POST') 
+                        form(action="" method='DELETE') 
                             input(
                                 type="hidden",
                                 required='true',
                                 value=message._id,
                                 )
+                            button(type='submit') Yeah, delete
                             
