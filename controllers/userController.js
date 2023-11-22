@@ -101,6 +101,7 @@ exports.user_signup_post = [
                     username: req.body.username,
                     password: hashedPassword,
                     membership_status: false,
+                    admin_status: false,
                 })
 
                 await userEncrypted.save();
@@ -191,6 +192,8 @@ exports.admin_form_get = asyncHandler(async (req, res, next) => {
     })
 })
 
-exports.admin_form_post = [
+exports.admin_form_post = asyncHandler(async (req, res, next) => {
+    if (req.body.adminPassword === process.env.ADMIN_PASSWORD) {
 
-]
+    }
+})
