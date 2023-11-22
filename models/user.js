@@ -12,6 +12,7 @@ const UserSchema = new Schema({
     username: {type: String, required: true, minLength: 4, maxLength: 50, unique: 'Username already taken'},
     password: {type: String, required: true},
     membership_status: {type: Boolean, required: true},
+    admin_status: {type: Boolean, required: true},
 })
 
 UserSchema.virtual('full_name').get(() => {
