@@ -31,4 +31,14 @@ block content
                 p !{message.text}
 
                 if user.admin_status 
-                    button Delete 
+                    button.toggleShowDelete Delete 
+
+                    div.hidden-message-delete-form
+                        p Are you sure you want to delete? This cannot be undone.
+                        form(action="" method='POST') 
+                            input(
+                                type="hidden",
+                                required='true',
+                                value=message._id,
+                                )
+                            
