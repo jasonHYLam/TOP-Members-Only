@@ -19,12 +19,16 @@ block content
         if user.admin_status 
             p You are admin. You can delete messages.
     
-    each message in messages 
+    div.message-container
+        each message in messages 
 
-        div.message-div
-            if user 
-                p() #{message.author.username}
-                p #{message.timeStamp}
+            div.message-div
+                if user 
+                    p.message-author !{message.author.username}
+                    p #{message.timeStamp}
         
-            p #{message.title}
-            p #{message.text}
+                p.message-title !{message.title}
+                p !{message.text}
+
+                if user.admin_status 
+                    button Delete 
