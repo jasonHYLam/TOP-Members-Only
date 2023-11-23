@@ -25,7 +25,9 @@ block content
                     value=user===undefined ? '' : user.password
                     )
 
-            button(type='submit') Log in
+
+            div.button-container
+                button(type='submit') Log in
 
         if errors 
             ul 
