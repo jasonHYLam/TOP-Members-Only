@@ -16,6 +16,7 @@ body {
   color: var(--font-color);
   font-family: 'MSSansSerif';
   align-items: center;
+  margin: 0;
 }
 
 a {
