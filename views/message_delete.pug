@@ -7,7 +7,10 @@ block content
     p Are you sure you want to delete this message? This action cannot be undone.
 
 
-    p=message
+    p !{message.author.username}
+    p !{message.title}
+    p !{message.text}
+    p !{message.timeStamp}
 
     form(action="" method='DELETE') 
         input(
