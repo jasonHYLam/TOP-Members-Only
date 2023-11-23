@@ -9,11 +9,13 @@
 body {
   display: flex;
   flex-direction: column;
+
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--font-color);
   font-family: 'MSSansSerif';
+  align-items: center;
 }
 
 a {
@@ -22,6 +24,14 @@ a {
 
 input[type='text'] {
   font-family: 'MSSansSerif';
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  border: 0;
+  border-bottom: 1px solid var(--font-color);
+}
+
+input:focus {
+  outline: none
 }
 
 .message-container {
@@ -39,4 +49,11 @@ input[type='text'] {
 
 .toggle-show-delete {
   
+}
+
+.window {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

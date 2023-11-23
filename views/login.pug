@@ -5,7 +5,7 @@ block content
     h1=title 
 
     div.window
-     form(action="" method='POST') 
+        form(action="" method='POST') 
             div.form-group
                 label(for="username") Username:
                 input.form-control(
@@ -25,8 +25,6 @@ block content
                     )
 
             button(type='submit') Log in
-
-        hr
 
         if errors 
             ul 
