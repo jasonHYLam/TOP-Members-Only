@@ -1,7 +1,10 @@
 @font-face {
   font-family: 'MSSansSerif';
   src: url('../fonts/MS\ Sans\ Serif\ 8pt.ttf');
+  /* src: url('../fonts/MS\ Sans\ Serif\ 8pt\ bold.ttf'); */
 }
+
+
 :root {
   --font-color: #81CBDA;
   --bg-color: #0B102D;
@@ -9,14 +12,14 @@
 body {
   display: flex;
   flex-direction: column;
-
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--font-color);
   font-family: 'MSSansSerif';
   align-items: center;
   margin: 0;
+  padding: 0;
+  width: 100vw;
+  gap: 100px;
 }
 
 a {
@@ -25,6 +28,8 @@ a {
 
 header {
   background-color: var(--font-color);
+  width: 100vw;
+  text-align: center;
 }
 
 h1 {
@@ -58,6 +63,13 @@ input:focus {
 
 .toggle-show-delete {
   
+}
+
+button {
+  background-color: var(--font-color);
+  color: var(--bg-color);
+  font-family: 'MSSansSerif';
+  padding: 10px 20px;
 }
 
 .window {
