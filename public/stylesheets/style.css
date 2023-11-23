@@ -22,6 +22,14 @@ a {
   color: #00B7FF;
 }
 
+header {
+  background-color: var(--font-color);
+}
+
+h1 {
+  color: var(--bg-color);
+}
+
 input[type='text'] {
   font-family: 'MSSansSerif';
   background-color: var(--bg-color);
