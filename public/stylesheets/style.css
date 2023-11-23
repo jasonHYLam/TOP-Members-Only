@@ -79,6 +79,14 @@ button {
   align-items: center;
 }
 
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-control {
+  margin-left: 20px;
+}
+
 .button-container {
   display: flex;
   justify-content: flex-end;
