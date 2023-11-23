@@ -12,11 +12,11 @@ block content
     p !{message.text}
     p !{message.timeStamp}
 
-    form(action="" method='DELETE') 
+    form(action="" method='POST') 
         input(
             type='hidden',
             required='true',
             value=message._id,
         )
         button(type='submit') Yeah, delete
-        button(href='/home') No, go back
+        a(href="/home") No, go back

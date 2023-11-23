@@ -1,12 +1,24 @@
+@font-face {
+  font-family: 'MSSansSerif';
+  src: url('../fonts/MS\ Sans\ Serif\ 8pt.ttf');
+}
+:root {
+  --font-color: #81CBDA;
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: black;
-  color: white;
+  color: var(--font-color);
+  font-family: 'MSSansSerif';
 }
 
 a {
   color: #00B7FF;
+}
+
+input[type='text'] {
+  font-family: 'MSSansSerif';
 }
 
 .message-container {
@@ -16,9 +28,13 @@ a {
 }
 
 .message-div {
-  background-color: blue;
+  background-color: black;
 }
 
 .message-author, .message-title {
   font-weight: bold;
+}
+
+.toggle-show-delete {
+  
 }

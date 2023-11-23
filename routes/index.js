@@ -25,7 +25,7 @@ router.get('/message', messageController.message_form_get);
 router.post('/message', messageController.message_form_post);
 
 router.get('/messages/:id/delete', messageController.message_delete_get)
-router.delete('/messages/:id/delete', messageController.message_delete_post)
+router.post('/messages/:id/delete', messageController.message_delete_post)
 
 router.get('/admin', userController.admin_form_get);
 router.post('/admin', userController.admin_form_post);
