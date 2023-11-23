@@ -4,37 +4,39 @@ block content
 
     h1 Home!
 
+    div.window
 
-    if user 
-        p
-            a(href='/message') New Message
 
-        p #{user.username} is here
+        if user 
+            p
+                a(href='/message') New Message
 
-        if !user.admin_status
-            p 
-                a(href='/admin') Become Admin
+            p #{user.username} is here
 
-        if user.admin_status 
-            p You are admin. You can delete messages.
+            if !user.admin_status
+                p 
+                    a(href='/admin') Become Admin
+
+            if user.admin_status 
+                p You are admin. You can delete messages.
     
-    else 
-        p
-            a(href='/login') Login
+        else 
+            p
+                a(href='/login') Login
 
     
-    div.message-container
-        each message in messages 
+        div.message-container
+            each message in messages 
 
-            div.message-div
-                if user 
-                    p.message-author !{message.author.username}
-                    p #{message.timeStamp}
+                div.message-div
+                    if user 
+                        p.message-author !{message.author.username}
+                        p #{message.timeStamp}
         
-                p.message-title !{message.title}
-                p !{message.text}
+                    p.message-title !{message.title}
+                    p !{message.text}
 
-                if user 
-                    if user.admin_status 
-                        a(href="/messages/" + message._id + "/delete")  Delete 
+                    if user 
+                        if user.admin_status 
+                            a(href="/messages/" + message._id + "/delete")  Delete 
                             

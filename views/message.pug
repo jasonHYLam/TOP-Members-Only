@@ -2,27 +2,28 @@ extends layout
 
 block content 
 
-    if !user
-        p Not logged in 
+    div.window
+        if !user
+            p Not logged in 
 
-    else 
-        form(action="" method="POST") 
-            div.form-group
-                label(for="title") 
-                input.form-control(
-                    name="title", 
-                    type="text", 
-                    required=true,
-                    placeholder='Tip cows tomorrow?'
-                    value=message===undefined ? '' : message.title
-                    )
-            div.form-group
-                label(for="text") 
-                input.form-control(
-                    name="text", 
-                    type="text", 
-                    required=true,
-                    placeholder='Hey guys, got a free night tomorrow. How does tipping cows at the farm sound?'
-                    value=message===undefined ? '' : message.text
-                    )
-            button(type='submit') Submit
+        else 
+            form(action="" method="POST") 
+                div.form-group
+                    label(for="title") 
+                    input.form-control(
+                        name="title", 
+                        type="text", 
+                        required=true,
+                        placeholder='Tip cows tomorrow?'
+                        value=message===undefined ? '' : message.title
+                        )
+                div.form-group
+                    label(for="text") 
+                    input.form-control(
+                        name="text", 
+                        type="text", 
+                        required=true,
+                        placeholder='Hey guys, got a free night tomorrow. How does tipping cows at the farm sound?'
+                        value=message===undefined ? '' : message.text
+                        )
+                button(type='submit') Submit

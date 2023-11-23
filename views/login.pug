@@ -4,31 +4,32 @@ block content
 
     h1=title 
 
-    form(action="" method='POST') 
-        div.form-group
-            label(for="username") Username:
-            input.form-control(
-                name="username", 
-                type="text", 
-                required=true,
-                value=user===undefined ? '' : user.username
-                )
+    div.window
+     form(action="" method='POST') 
+            div.form-group
+                label(for="username") Username:
+                input.form-control(
+                    name="username", 
+                    type="text", 
+                    required=true,
+                    value=user===undefined ? '' : user.username
+                    )
 
-        div.form-group
-            label(for="password") Password:
-            input.form-control(
-                name="password", 
-                type="text", 
-                required=true,
-                value=user===undefined ? '' : user.password
-                )
+            div.form-group
+                label(for="password") Password:
+                input.form-control(
+                    name="password", 
+                    type="text", 
+                    required=true,
+                    value=user===undefined ? '' : user.password
+                    )
 
-        button(type='submit') Log in
+            button(type='submit') Log in
 
-    hr
+        hr
 
-    if errors 
-        ul 
-            each error in errors 
-                li error.msg
+        if errors 
+            ul 
+                each error in errors 
+                    li error.msg
             

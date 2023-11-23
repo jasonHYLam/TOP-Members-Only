@@ -4,13 +4,14 @@ block content
 
     h1=title 
 
-    p Join the secret club...
-    p Type in secret password:
+    div.window
+        p Join the secret club...
+        p Type in secret password:
 
-    form(action="" method='POST')
-        div.form-group
-            input.form-control(
-                type='text',
-                name='membershipPassword',
-            )
-        button(type='submit') Join...
+        form(action="" method='POST')
+            div.form-group
+                input.form-control(
+                    type='text',
+                    name='membershipPassword',
+                )
+            button(type='submit') Join...

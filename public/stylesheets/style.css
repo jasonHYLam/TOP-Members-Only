@@ -4,11 +4,14 @@
 }
 :root {
   --font-color: #81CBDA;
+  --bg-color: #0B102D;
 }
 body {
+  display: flex;
+  flex-direction: column;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: black;
+  background-color: var(--bg-color);
   color: var(--font-color);
   font-family: 'MSSansSerif';
 }
@@ -28,7 +31,6 @@ input[type='text'] {
 }
 
 .message-div {
-  background-color: black;
 }
 
 .message-author, .message-title {

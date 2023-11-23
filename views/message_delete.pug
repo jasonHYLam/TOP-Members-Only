@@ -4,19 +4,20 @@ block content
 
     h1=title 
 
-    p Are you sure you want to delete this message? This action cannot be undone.
+    div.window
+        p Are you sure you want to delete this message? This action cannot be undone.
 
 
-    p !{message.author.username}
-    p !{message.title}
-    p !{message.text}
-    p !{message.timeStamp}
+        p !{message.author.username}
+        p !{message.title}
+        p !{message.text}
+        p !{message.timeStamp}
 
-    form(action="" method='POST') 
-        input(
-            type='hidden',
-            required='true',
-            value=message._id,
-        )
-        button(type='submit') Yeah, delete
-        a(href="/home") No, go back
+        form(action="" method='POST') 
+            input(
+                type='hidden',
+                required='true',
+                value=message._id,
+            )
+            button(type='submit') Yeah, delete
+            a(href="/home") No, go back

@@ -3,52 +3,53 @@ extends layout
 block content 
     h1=title
 
-    form(action="" method='POST') 
-        div.form-group
-            label(for="firstName") First Name
-            input.form-control(
-                type="text", 
-                name="firstName", 
-                placeholder='Jack', 
+    div.window
+        form(action="" method='POST') 
+            div.form-group
+                label(for="firstName") First Name
+                input.form-control(
+                    type="text", 
+                    name="firstName", 
+                    placeholder='Jack', 
+                    required=true,
+                    value=(user===undefined ? '' : user.first_name)
+                    )
+
+            div.form-group
+                label(for="lastName") Last Name
+                input.form-control(type="text", 
+                name="lastName", 
+                placeholder='Jackson', 
                 required=true,
-                value=(user===undefined ? '' : user.first_name)
+                value=(user===undefined ? '' : user.last_name)
                 )
 
-        div.form-group
-            label(for="lastName") Last Name
-            input.form-control(type="text", 
-            name="lastName", 
-            placeholder='Jackson', 
-            required=true,
-            value=(user===undefined ? '' : user.last_name)
-            )
+            div.form-group
+                label(for="username") Username
+                input.form-control(type="text", 
+                name="username", 
+                placeholder='Jack123', 
+                required=true,
+                value=(user===undefined ? '' : user.username)
+                )
 
-        div.form-group
-            label(for="username") Username
-            input.form-control(type="text", 
-            name="username", 
-            placeholder='Jack123', 
-            required=true,
-            value=(user===undefined ? '' : user.username)
-            )
+            div.form-group
+                label(for="password") Password
+                input.form-control(type="password", 
+                name="password", 
+                required=true,
+                value=(user===undefined ? '' : user.password)
+                )
 
-        div.form-group
-            label(for="password") Password
-            input.form-control(type="password", 
-            name="password", 
-            required=true,
-            value=(user===undefined ? '' : user.password)
-            )
+            div.form-group
+                label(for="confirmPassword") Confirm Password
+                input.form-control(type="password", name="confirmPassword", required=true,)
 
-        div.form-group
-            label(for="confirmPassword") Confirm Password
-            input.form-control(type="password", name="confirmPassword", required=true,)
-
-        button(type='submit') Submit
+            button(type='submit') Submit
     
-    if errors 
-        ul 
-            for error in errors 
-                li!= error.msg
+        if errors 
+            ul 
+                for error in errors 
+                    li!= error.msg
 
 

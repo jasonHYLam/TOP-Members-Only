@@ -10,7 +10,7 @@ const { body, validationResult } = require('express-validator');
 
 exports.user_signup_get = asyncHandler( async (req, res, next) => {
   res.render('signup', {
-    title: 'Sign up',
+    title: 'SIGN UP',
   })
 });
 
@@ -74,7 +74,7 @@ exports.user_signup_post = [
 
         if (!errors.isEmpty()) {
             res.render('signup', {
-                title: "Sign up",
+                title: "SIGN UP",
                 user: user,
                 errors: errors.array(),
             })
@@ -83,7 +83,7 @@ exports.user_signup_post = [
         // Requires separate error handling, as checking database cannot be done with Express Validator.
         else if (existingUser) {
             res.render('signup', {
-                title: 'Sign up',
+                title: 'SIGN UP',
                 user: user,
                 errors: [{msg: 'Username already taken'}]
             })
@@ -145,7 +145,7 @@ exports.home_get = asyncHandler(async (req, res, next) => {
 
 exports.user_login_get = asyncHandler(async (req, res, next) => {
     res.render('login', {
-        title: 'Login',
+        title: 'LOGIN',
     })
 })
 
@@ -171,7 +171,7 @@ exports.user_login_post = [
         
         if (!errors.isEmpty()) {
             res.render('login', {
-                title: 'Login',
+                title: 'LOGIN',
                 user: user,
                 errors: errors.array(),
             })
