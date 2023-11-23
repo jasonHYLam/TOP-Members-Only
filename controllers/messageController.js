@@ -35,11 +35,8 @@ exports.message_form_post = [
             author: matchingUser,
             timeStamp: new Date(),
         }) 
-            console.log('NEW MESSAGE CREATED')
 
         if (!errors.isEmpty()) {
-            console.log('CEHCKING FOR ERRORS:')
-            console.log(errors)
             res.render('message', {
                 title: 'New Message',
                 text: text,
@@ -48,11 +45,22 @@ exports.message_form_post = [
         }
 
         else {
-            console.log('BEFORE SAVING:')
             await message.save()
-            console.log('SAVED')
             res.redirect('/home')
         }
     })
 
 ]
+
+exports.message_delete_get = asyncHandler(async (req, res, next) => {
+
+    const message = await Message.findById(req.params.id).exec();
+    res.render('message_delete', {
+        title: 'Delete Message',
+        message: message,
+    })
+})
+
+exports.message_delete_post = asyncHandler(async (req, res, next ) => {
+
+})

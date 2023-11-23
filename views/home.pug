@@ -34,6 +34,7 @@ block content
                 p.message-title !{message.title}
                 p !{message.text}
 
-                if user.admin_status 
-                    a(href="/messages/" + message._id + "/delete")  Delete 
+                if user 
+                    if user.admin_status 
+                        a(href="/messages/" + message._id + "/delete")  Delete 
                             
