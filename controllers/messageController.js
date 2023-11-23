@@ -62,5 +62,11 @@ exports.message_delete_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.message_delete_post = asyncHandler(async (req, res, next ) => {
+    console.log(req.params)
+
+    await Message.findById(req.params.id).exec()
+    // await Message.findByIdAndDelete(req.params.id).exec()
+
+    // res.redirect('/home');
 
 })
