@@ -2,7 +2,11 @@ extends layout
 
 block content 
 
-    h1 Home!
+    header
+        if user
+            h1 Welcome, !{user.username}
+        else 
+            h1 Home
 
     div.window
 
@@ -11,7 +15,6 @@ block content
             p
                 a(href='/message') New Message
 
-            p #{user.username} is here
 
             if !user.admin_status
                 p 
@@ -31,7 +34,12 @@ block content
                 div.message-div
                     if user 
                         p.message-author !{message.author.username}
-                        p #{message.timeStamp}
+                        p=message.timeStamp
+                        p=message.timeStampFormatted
+                    
+                    else 
+                        p [ ******* ]
+                        p [ ******* ]
         
                     p.message-title !{message.title}
                     p !{message.text}
