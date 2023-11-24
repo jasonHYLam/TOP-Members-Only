@@ -21,7 +21,7 @@ block content
                     a(href='/admin') Become Admin
 
             if user.admin_status 
-                p You are admin. You can delete messages.
+                p Admin privileges granted; you can delete messages.
             else if user 
                 p You are a member. You can see message author and timestamp.
     
@@ -34,20 +34,22 @@ block content
             each message in messages 
 
                 div.message-div
-                    div.message-left
-                        if user 
-                            p.message-author [ !{message.author.username} ]
-                            p [ #{message.timeStampFormatted} ]
+                    div.message-div-without-delete
+                        div.message-left
+                            if user 
+                                p.message-author [ !{message.author.username} ]
+                                p [ #{message.timeStampFormatted} ]
                     
-                        else 
-                            p [ ########## ]
-                            p [ ##:##- ##-##-## ]
+                            else 
+                                p [ ########## ]
+                                p [ ##:##- ##-##-## ]
         
-                    div.message-right
-                        p.message-title !{message.title}
-                        p !{message.text}
+                        div.message-right
+                            p.message-title !{message.title}
+                            p !{message.text}
 
                     if user 
                         if user.admin_status 
-                            a.button-link(href="/messages/" + message._id + "/delete")  Delete 
+                            a(href="/messages/" + message._id + "/delete")
+                                button Delete
                             
