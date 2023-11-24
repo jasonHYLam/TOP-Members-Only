@@ -13,7 +13,7 @@ block content
 
         if user 
             p
-                a(href='/message') New Message
+                a.button-link(href='/message') New Message
 
 
             if !user.admin_status
@@ -22,29 +22,32 @@ block content
 
             if user.admin_status 
                 p You are admin. You can delete messages.
+            else if user 
+                p You are a member. You can see message author and timestamp.
     
         else 
             p
-                a(href='/login') Login
+                a.button-link(href='/login') Login
 
     
         div.message-container
             each message in messages 
 
                 div.message-div
-                    if user 
-                        p.message-author !{message.author.username}
-                        p=message.timeStamp
-                        p=message.timeStampFormatted
+                    div.message-left
+                        if user 
+                            p.message-author [ !{message.author.username} ]
+                            p [ #{message.timeStampFormatted} ]
                     
-                    else 
-                        p [ ******* ]
-                        p [ ******* ]
+                        else 
+                            p [ ########## ]
+                            p [ ##:##- ##-##-## ]
         
-                    p.message-title !{message.title}
-                    p !{message.text}
+                    div.message-right
+                        p.message-title !{message.title}
+                        p !{message.text}
 
                     if user 
                         if user.admin_status 
-                            a(href="/messages/" + message._id + "/delete")  Delete 
+                            a.button-link(href="/messages/" + message._id + "/delete")  Delete 
                             
