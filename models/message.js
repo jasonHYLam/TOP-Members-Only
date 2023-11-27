@@ -11,7 +11,7 @@ const MessageSchema = new Schema({
 })
 
 MessageSchema.virtual('timeStampFormatted').get(function () {
-    return DateTime.fromJSDate(this.timeStamp).toFormat('T- dd-LL-yy')
+    return DateTime.fromJSDate(this.timeStamp).toFormat('T  dd/LL/yy')
 } )
 
 module.exports = mongoose.model("Message", MessageSchema);

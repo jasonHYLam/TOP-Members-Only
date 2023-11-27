@@ -75,22 +75,12 @@ input:focus {
   gap: 40px;
 }
 
-.message-left {
-
-
-}
-.message-right {}
-
 .message-author, .message-title {
   font-weight: bold;
 }
 
 .message-author {
   color: #F6951D
-}
-
-.toggle-show-delete {
-  
 }
 
 button {
