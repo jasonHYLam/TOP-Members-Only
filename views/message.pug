@@ -2,6 +2,9 @@ extends layout
 
 block content 
 
+    header
+        h1=title
+
     div.window
         if !user
             p Not logged in 
@@ -9,7 +12,7 @@ block content
         else 
             form(action="" method="POST") 
                 div.form-group
-                    label(for="title") 
+                    label(for="title") Title
                     input.form-control(
                         name="title", 
                         type="text", 
@@ -18,12 +21,14 @@ block content
                         value=message===undefined ? '' : message.title
                         )
                 div.form-group
-                    label(for="text") 
-                    input.form-control(
+                    label(for="text") Text
+                    textarea.form-control(
                         name="text", 
-                        type="text", 
+                        cols="20", 
+                        rows="10",
+                        placeholder='Hey guys, got a free night tomorrow. How does tipping cows at the farm sound?',
+                        value=message===undefined ? '' : message.text,
                         required=true,
-                        placeholder='Hey guys, got a free night tomorrow. How does tipping cows at the farm sound?'
-                        value=message===undefined ? '' : message.text
-                        )
-                button(type='submit') Submit
+                    ) 
+                div.button-container
+                    button(type='submit') Submit

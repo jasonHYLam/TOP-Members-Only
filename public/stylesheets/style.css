@@ -36,7 +36,7 @@ h1 {
   color: var(--bg-color);
 }
 
-input[type='text'], input[type='password'] {
+input[type='text'], input[type='password'], textarea {
   font-family: 'MSSansSerif';
   background-color: var(--bg-color);
   color: var(--font-color);
@@ -113,9 +113,12 @@ button {
   display: flex;
   justify-content: flex-end;
 }
-form button {
 
+.message-input {
+  height: 200px;
+  width: 200px;
 }
 
-
-.button-link
+textarea {
+  resize: none;
+}
