@@ -210,3 +210,9 @@ exports.admin_form_post = asyncHandler(async (req, res, next) => {
         })
     }
 })
+
+exports.logout_get = asyncHandler(async (req, res, next) => {
+    res.render('logout', {
+        title: 'Logout'
+    })
+})
