@@ -1,11 +1,13 @@
 # TOP-Members-Only
 A silly little message board app. To view the author and timestamp of each message you have to join the membership.
 
-This was a fun project that introduced me to using user authentication with PassportJS and ExpresJS. 
+Admins can delete messages.
+
+This was a fun project that introduced me to using user authentication with PassportJS and ExpressJS. 
   
 Note that after signing up, you will have to log in manually.
   
-The membership password is `whatshouldido`
+The membership password is `whatshouldido`. There is no hint for admin password.
 
 ## What I've Learned
 
