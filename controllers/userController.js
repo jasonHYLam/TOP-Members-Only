@@ -216,3 +216,10 @@ exports.logout_get = asyncHandler(async (req, res, next) => {
         title: 'Logout'
     })
 })
+
+exports.logout_post = asyncHandler(async (req, res, next) => {
+    req.logout(function(err) {
+        if (err) return next(err)
+        res.redirect('/home');
+    })
+})

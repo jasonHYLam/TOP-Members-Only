@@ -1,0 +1,20 @@
+extends layout 
+
+block content 
+
+    header 
+        h1=title 
+
+    div.window 
+        p Are you sure you want to logout?
+
+        form(action="" method='POST') 
+            input(
+                type='hidden',
+                required='true',
+            )
+            button(type='submit') Yeah, logout
+
+        a(href="/home") No
+
+
