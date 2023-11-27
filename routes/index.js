@@ -30,4 +30,7 @@ router.post('/messages/:id/delete', messageController.message_delete_post)
 router.get('/admin', userController.admin_form_get);
 router.post('/admin', userController.admin_form_post);
 
+router.get('/logout', userController.logout_get)
+router.post('/logout', userController.logout_post)
+
 module.exports = router;
