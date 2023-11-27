@@ -8,10 +8,13 @@ block content
         p Are you sure you want to delete this message? This action cannot be undone.
 
 
-        p !{message.author.username}
-        p !{message.title}
-        p !{message.text}
-        p !{message.timeStamp}
+        div.message-div-without-delete
+            div.message-left
+                p.message-author !{message.author.username}
+                p [ !{message.timeStampFormatted} ]
+            div.message-right
+                p.message-title !{message.title}
+                p !{message.text}
 
         form(action="" method='POST') 
             input(
@@ -20,4 +23,5 @@ block content
                 value=message._id,
             )
             button(type='submit') Yeah, delete
-            a(href="/home") No, go back
+
+        a(href="/home") No, go back

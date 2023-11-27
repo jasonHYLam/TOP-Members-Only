@@ -21,7 +21,7 @@ body {
   height: 100vh;
   width: 98vw;
   max-width: 100%;
-  gap: 100px;
+  gap: 50px;
 }
 
 header a {
@@ -46,8 +46,20 @@ header {
   right: 30px;
 }
 
+.header-left {
+  position: absolute;
+  left: 50px;
+}
+
+.message-left {
+  /* width: 150px; */
+}
+
+.message-right {
+  width: 350px;
+}
 footer {
-  margin-top: 50px;
+  height: 50px;
 }
 
 h1 {
@@ -71,13 +83,15 @@ input:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 50px;
 }
 
 .message-container {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  min-width: 600px;
   gap: 50px;
+  align-items: center;
 }
 
 .message-div {
@@ -85,6 +99,7 @@ input:focus {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  width: 600px;
 }
 
 .message-div-without-delete {
@@ -132,4 +147,17 @@ button {
 
 textarea {
   resize: none;
+}
+
+
+button a:link, 
+button a:visited,
+.github-link {
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+i {
+  font-size: 30px;
+  color: var(--bg-color);
 }

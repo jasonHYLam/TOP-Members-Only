@@ -3,6 +3,10 @@ extends layout
 block content 
 
     header
+        div.header-left
+            a.github-link(href="https://github.com/jasonHYLam/TOP-Members-Only") 
+                i.devicon-github-original.colored.icon
+
 
         if user
             h1 Welcome, !{user.username}
@@ -11,7 +15,14 @@ block content
         
         div.header-right
             if user
+                a.button-link(href='/message') New Message
                 a(href="/logout") Logout
+
+                if !user.membership_status
+                    a(href='/admin') Become Member
+
+                if !user.admin_status
+                    a(href='/admin') Become Admin
             else 
                 a.button-link(href='/login') Login
                 a.button-link(href='/sign-up') Signup
@@ -22,12 +33,8 @@ block content
 
         if user 
             p
-                a.button-link(href='/message') New Message
 
 
-            if !user.admin_status
-                p 
-                    a(href='/admin') Become Admin
 
             if user.admin_status 
                 p Admin privileges granted; you can delete messages.
@@ -36,7 +43,7 @@ block content
     
         div.message-container
 
-            if messages
+            if messages.length > 0
                 each message in messages 
 
                     div.message-div
@@ -59,6 +66,4 @@ block content
                                 a(href="/messages/" + message._id + "/delete")
                                     button Delete
             else 
-                p No messages. Signup to create a message! 
-
-    footer
+                p No messages.

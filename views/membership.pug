@@ -2,10 +2,12 @@ extends layout
 
 block content 
 
-    h1=title 
+    header
+        h1=title 
 
     div.window
-        p Join the secret club...
+        p Members can view the authors and timestamps of each message.
+
         p Type in secret password:
 
         form(action="" method='POST')
@@ -14,4 +16,5 @@ block content
                     type='text',
                     name='membershipPassword',
                 )
-            button(type='submit') Join...
+            div.button-container
+                button(type='submit') Join...
