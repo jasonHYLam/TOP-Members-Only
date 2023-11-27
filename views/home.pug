@@ -10,7 +10,12 @@ block content
             h1 Home
         
         div.header-right
-            a(href="/logout") Logout
+            if user
+                a(href="/logout") Logout
+            else 
+                a.button-link(href='/login') Login
+                a.button-link(href='/sign-up') Signup
+
 
     div.window
 
@@ -29,31 +34,29 @@ block content
             else if user 
                 p You are a member. You can see message author and timestamp.
     
-        else 
-            p
-                a.button-link(href='/login') Login
-
-    
         div.message-container
-            each message in messages 
 
-                div.message-div
-                    div.message-div-without-delete
-                        div.message-left
-                            if user 
-                                p.message-author [ !{message.author.username} ]
-                                p [ #{message.timeStampFormatted} ]
+            if messages
+                each message in messages 
+
+                    div.message-div
+                        div.message-div-without-delete
+                            div.message-left
+                                if user 
+                                    p.message-author [ !{message.author.username} ]
+                                    p [ #{message.timeStampFormatted} ]
                     
-                            else 
-                                p [ ########## ]
-                                p [ ##:##  ##/##/## ]
+                                else 
+                                    p [ ########## ]
+                                    p [ ##:##  ##/##/## ]
         
-                        div.message-right
-                            p.message-title !{message.title}
-                            p !{message.text}
+                            div.message-right
+                                p.message-title !{message.title}
+                                p !{message.text}
 
-                    if user 
-                        if user.admin_status 
-                            a(href="/messages/" + message._id + "/delete")
-                                button Delete
-                            
+                        if user 
+                            if user.admin_status 
+                                a(href="/messages/" + message._id + "/delete")
+                                    button Delete
+            else 
+                p No messages. Signup to create a message! 

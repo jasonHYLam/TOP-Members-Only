@@ -23,7 +23,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: var(--bg-color);
 }
 
 header {
