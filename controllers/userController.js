@@ -8,6 +8,7 @@ const passport = require('passport');
 
 const { body, validationResult } = require('express-validator');
 
+
 exports.user_signup_get = asyncHandler( async (req, res, next) => {
   res.render('signup', {
     title: 'SIGN UP',

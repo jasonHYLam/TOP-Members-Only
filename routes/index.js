@@ -7,7 +7,7 @@ const messageController = require('../controllers/messageController');
 
 /* GET home page. */
 router.get('/',(req, res, next) => {
-  res.render('index', { title: 'Express' });
+  res.redirect('/home')
 });
 
 router.get('/sign-up', userController.user_signup_get);
