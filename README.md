@@ -1,6 +1,9 @@
 # TOP-Members-Only
 ![Members-Only](https://github.com/jasonHYLam/TOP-Members-Only/assets/105083538/fd9b850c-e992-4f7e-a1af-a85c0b55c684)
 ![members-only logged out](https://github.com/jasonHYLam/TOP-Members-Only/assets/105083538/f84933c5-1098-4759-9ec9-86787d2f776e)
+
+Live Link: https://top-members-only.adaptable.app/home
+
 A silly little message board app. To view the author and timestamp of each message you have to join the membership.
 
 Admins can delete messages.
