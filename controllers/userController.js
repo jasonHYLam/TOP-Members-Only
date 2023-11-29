@@ -55,13 +55,7 @@ exports.user_signup_post = [
     .custom((value, {req}) => value === req.body.password)
     .withMessage("Passwords must match."),
     
-
-    // determine if password is the same
-    // maybe determine if username has already been taken?
-    // i think in both cases, i need to implement a custom validator, to return boolean whether valid or not.
-
     asyncHandler(async (req, res, next) => {
-
 
         const errors = validationResult(req);
         const existingUser = await User.findOne({ username: req.body.username })
@@ -91,7 +85,6 @@ exports.user_signup_post = [
         }
 
         else {
-            // i may have to add a try catch for errors...
             bcrypt.hash(req.body.password, 10, async (err, hashedPassword) => {
 
                 if (err) return next(err);
@@ -189,6 +182,7 @@ exports.user_login_post = [
             return passport.authenticate('local', {
                 successRedirect: '/home',
                 failureRedirect: '/login',
+                failureMessage: true,
             })(req, res, next)
         }
     })

@@ -4,6 +4,7 @@ const createError = require('http-errors');
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
+const flash = require('connect-flash');
 
 require('./config/passport')(passport);
 
@@ -43,6 +44,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(flash())
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
