@@ -128,9 +128,16 @@ exports.join_club_post = asyncHandler( async(req, res, next) => {
         const latestUser = latestUsers[0];
         latestUser.membership_status = true;
         await latestUser.save();
+
+        res.redirect('/home')
+    }
+    else {
+        res.render('membership', {
+            title: 'Join Membership',
+            errors: [{msg: 'Incorrect password'}]
+        })
     }
 
-    res.redirect('/home')
 
 })
 
