@@ -18,3 +18,7 @@ block content
                 )
             div.button-container
                 button(type='submit') Join...
+        
+        if errors 
+            each error in errors 
+                li !{error.msg}
